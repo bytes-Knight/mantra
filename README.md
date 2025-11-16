@@ -1,50 +1,72 @@
-<h1 align="center">「🔑」 About Mantra</h1>
+<h1 align="center">🔑 Mantra</h1>
 
-<p align="center"><img src="assets/banner.png"></p>
+<p align="center">
+  <img src="assets/banner.png" alt="Mantra Banner">
+</p>
 
-The tool in question was created in Go and its main objective is to search for API keys in JavaScript files and HTML pages.
+## About Mantra
 
-It works by checking the source code of web pages and script files for strings that are identical or similar to API keys. These keys are often used for authentication to online services such as third-party APIs and are confidential and should not be shared publicly.
+Mantra is a powerful tool written in Go that helps you find API keys and other secrets in web pages and JavaScript files. It scans the source code of websites for strings that match common patterns for API keys, preventing them from being exposed.
 
-By using this tool, developers can quickly identify if their API keys are leaking and take steps to fix the problem before they are compromised. Furthermore, the tool can be useful for security officers, who can use it to verify that applications and websites that use external APIs are adequately protecting their keys.
+This tool is essential for developers and security professionals who need to ensure that sensitive credentials are not accidentally leaked. By identifying exposed keys, Mantra helps you secure your applications and protect against potential attacks.
 
-In summary, this tool is an efficient and accurate solution to help secure your API keys and prevent sensitive information leaks.
+## Features
 
-## Help
-![](assets/help.png)
+- **Fast and Efficient**: Scans files quickly to find secrets without compromising performance.
+- **Comprehensive Detection**: Identifies a wide range of API keys and secrets using an extensive set of regex patterns.
+- **Easy to Use**: Simple command-line interface that can be easily integrated into your security workflows.
+- **Customizable**: Supports custom regex patterns to help you find specific secrets.
 
-## Usage
-![](assets/usage1.png)
+## Getting Started
 
-## Install
+### Installation
 
-From go:
+You can install Mantra using one of the following methods:
 
+**From Go:**
+
+```bash
+go install github.com/bytes-Knight/mantra@latest
 ```
-go install github.com/Brosck/mantra@latest
-```
 
-From source code:
+**From Source:**
 
-```
-git clone https://github.com/brosck/mantra
+```bash
+git clone https://github.com/bytes-Knight/mantra
 cd mantra
 make
 ./build/mantra-amd64-linux -h
 ```
 
-# Results
+### Usage
 
-**Firebase API Key Leak**:
+You can use Mantra to scan a list of URLs from a file or standard input.
+
+**Example:**
+
+```bash
+cat urls.txt | mantra -t 50
+```
+
+For more options and flags, use the `-h` flag to see the help menu.
+
+![](assets/help.png)
+
+## Example Output
+
+Here is an example of Mantra detecting a Firebase API key leak:
+
 <img width="1689" height="559" alt="image" src="https://github.com/user-attachments/assets/c06d2c2e-e2e8-4fc9-b20d-2f6b2ad9a096" />
 
-## Buy me a coffee?
+## Support
 
-<a href="https://pixgg.com/MrEmpy" target="_blank">
-  <img src="https://pixgg.com/img/logo-darkmode.046d3b61.svg" height="30" widght="30">
+If you find this tool helpful, please consider supporting its development.
+
+<a href="https/pixgg.com/MrEmpy" target="_blank">
+  <img src="https://pixgg.com/img/logo-darkmode.046d3b61.svg" height="30" width="30">
 </a>
-</br>
-</br>
+<br>
+<br>
 <a href="https://www.buymeacoffee.com/mrempy" target="_blank">
-  <img src="https://play-lh.googleusercontent.com/aMb_Qiolzkq8OxtQZ3Af2j8Zsp-ZZcNetR9O4xSjxH94gMA5c5gpRVbpg-3f_0L7vlo" height="50" widght="50">
+  <img src="https://play-lh.googleusercontent.com/aMb_Qiolzkq8OxtQZ3Af2j8Zsp-ZZcNetR9O4xSjxH94gMA5c5gpRVbpg-3f_0L7vlo" height="50" width="50">
 </a>
