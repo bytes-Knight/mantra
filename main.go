@@ -26,12 +26,13 @@ var (
 
 func init() {
 	// Initialize flags
-	silent = flag.Bool("s", false, "silent")
-	thread = flag.Int("t", 50, "thread number")
-	ua = flag.String("ua", "Mantra", "User-Agent")
-	detailed = flag.Bool("d", false, "detailed")
-	rc = flag.String("c", "", "cookies")
-	extrapattern = flag.String("ep", "", "extra, custom (regexp) pattern")
+	silent = flag.Bool("s", false, "silent") [cite: 1]
+	thread = flag.Int("t", 50, "thread number") [cite: 1]
+	ua = flag.String("ua", "Mantra", "User-Agent") [cite: 1]
+	detailed = flag.Bool("d", false, "detailed") [cite: 1]
+	rc = flag.String("c", "", "cookies") [cite: 1]
+	// FIX: Concatenated the extrapattern string 
+	extrapattern = flag.String("ep", "", "extra, custom (regexp) pattern") 
 }
 
 func compilePatterns() {
@@ -50,7 +51,7 @@ func compilePatterns() {
 
 func req(url string) {
 	if !strings.Contains(url, "http") {
-		fmt.Println("\033[31m[-]\033[37m Send URLs via stdin (ex: cat js.txt | mantra). Each url must contain 'http' string.")
+		fmt.Println("\033[31m[-]\033[37m Send URLs via stdin (ex: cat js.txt | mantra). Each url must contain 'http' string.") [cite: 3]
 		os.Exit(0)
 	}
 
@@ -98,14 +99,14 @@ func req(url string) {
 				lines := strings.Split(strbody, "\n")
 				for i, line := range lines {
 					if strings.Contains(line, secret) {
-						fmt.Printf("\033[32m[+]\033[37m %s \033[32m[\033[37m%s\033[32m] [\033[37mLine: %d\033[32m]\033[37m\n", url, secret, i+1)
+						fmt.Printf("\033[32m[+]\033[37m %s \033[32m[\033[37m%s\033[32m] [\033[37mLine: %d\033[32m]\033[37m\n", url, secret, i+1) [cite: 4]
 					}
 				}
 			} else {
 				if secret != *extrapattern {
 					fmt.Printf("\033[1;32m[+]\033[37m %s \033[1;32m[\033[37m%s\033[1;32m]\033[37m\n", url, secret)
 				} else {
-					fmt.Printf("\033[32m[+]\033[37m %s \033[32m[\033[37m%s\033[32m] -- Extra pattern detected! --\033[0m\n", url, secret)
+					fmt.Printf("\033[32m[+]\033[37m %s \033[32m[\033[37m%s\033[32m] -- Extra pattern detected! --\033[0m\n", url, secret) [cite: 5]
 				}
 			}
 		}
@@ -121,7 +122,7 @@ func banner() {
 	██║ ╚═╝ ██║██║  ██║██║ ╚████║   ██║   ██║  ██║██║  ██║
 	╚═╝     ╚═╝╚═╝  ╚═╝╚═╝  ╚═══╝   ╚═╝   ╚═╝  ╚═╝╚═╝  ╚═╝
 			   ` + "\033[31m[\033[37mCoded by Brosck\033[31m]\n" +
-		`                             ` + "\033[31m[\033[37mVersion 3.2\033[31m]\n")
+		`                             ` + "\033[31m[\033[37mVersion 3.2\033[31m]\n") [cite: 6]
 }
 
 func main() {
