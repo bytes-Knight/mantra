@@ -25,15 +25,11 @@ You can install Mantra using one of the following methods:
 
 **From Go:**
 
-```bash
-go install github.com/Brosck/mantra@latest
-```
+
 
 **From Source:**
 
-```bash
-git clone https://github.com/brosck/mantra
-cd mantra
+
 make
 ./build/mantra-amd64-linux -h
 ```
